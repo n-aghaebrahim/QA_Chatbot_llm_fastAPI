@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stanford Q&A Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        #chat {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #000000;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+        h1 {
+            text-align: center;
+            color: #00aaff; /* Color for the "Stanford Q&A Chatbot" topic */
+        }
+        #chat-container {
+            margin-top: 20px;
+        }
+        #user-message {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        #user-message::placeholder {
+            color: #777;
+        }
+        #send-button {
+            background-color: #00aaff;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #send-button:hover {
+            background-color: #0077cc;
+        }
+        p {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: flex-start;
+        }
+        p:nth-child(odd) {
+            background-color: #000000;
+        }
+        i {
+            font-size: 1.2em;
+            color: #00aaff;
+            margin-right: 10px;
+        }
+        
+        /* Add custom CSS for the bot's response text alignment */
+        .bot-response {
+            text-indent: 20px; /* Adjust the value to control the indentation */
+        }
+    </style>
+</head>
+<body>
+    <h1>Stanford Q&A Chatbot</h1>
+    <div id="chat">
+        <div id="chat-container"></div>
+        <input id="user-message" type="text" placeholder="Type a question..." onkeypress="handleKeyPress(event)" />
+        <button id="send-button" onclick="sendMessage()">Ask</button>
+    </div>
+    <script>
+        // Function to handle Enter key press
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        async function sendMessage() {
+            const userMessage = document.getElementById("user-message").value;
+            document.getElementById("chat-container").innerHTML += `<p><i class="fas fa-user"></i>You: ${userMessage}</p>`;
+            document.getElementById("user-message").value = "";
+            const response = await fetch(`/chatbot_response?user_message=${userMessage}`);
+            const data = await response.json();
+            const botResponse = data.bot_response;
+
+            // Split the bot's response into lines
+            const botResponseLines = botResponse.split('\n');
+
+            // Display each line with a 'Bot:' label and the custom CSS class
+            for (const line of botResponseLines) {
+                document.getElementById("chat-container").innerHTML += `<p class="bot-response"><i class="fas fa-robot"></i>Bot: ${line}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
+
