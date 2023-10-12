@@ -59,7 +59,7 @@ from langchain.chains import RetrievalQA
 
 
 # Set your OpenAI API key here
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "sk-xxxxxxxxxxxxx"
 
 
 # function to convert data and load it into panda format
