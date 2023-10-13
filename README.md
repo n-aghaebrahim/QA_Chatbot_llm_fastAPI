@@ -10,7 +10,13 @@ This repository contains code for a chatbot powered by OpenAI's GPT-3.5 Turbo. T
    git clone <repository_url>
 
 
-2. **Provide OpenAI API Key**
+2. Set up a Python environment and install the required packages using the provided `requirements.txt` file:
+
+   ```bash
+   pip install -r requirements.txt
+
+
+3. **Provide OpenAI API Key**
 
 In the `llm.py` file, replace the placeholder `"sk-xxxxxxxxxxxxx"` with your actual OpenAI API key. You can obtain the API key by signing up for OpenAI services.
 

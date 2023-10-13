@@ -1,0 +1,9 @@
+fastapi==0.68.0
+uvicorn==0.15.0
+pandas==1.3.3
+openai==0.27.0
+langchain==0.1.0
+Pillow==8.2.0
+chromadb==0.4.3
+tiktoken
+
