@@ -218,7 +218,7 @@ def initialize_qa_chain(llm, vectordb, QA_CHAIN_PROMPT):
 
 # Set your OpenAI API key here
 set_openai_api_key("sk-xxxxxxxxxxxxx")
-data_df = squad_json_to_dataframe("train-v1.1.json") # convert json to dataframe
+data_df = squad_json_to_dataframe("data/train-v1.1.json") # convert json to dataframe
 data_df = preprocess(data_df)
 data_loader = data_loader(data_df)
 splits = create_text_splits(data_loader)
