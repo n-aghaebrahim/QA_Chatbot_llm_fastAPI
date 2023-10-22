@@ -10,31 +10,21 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
-            color: #000000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; /* Move title to the top of the page */
-            height: 100vh;
-        }
-        #title {
-            color: #ff0000; /* Change title color to red */
-            padding: 20px;
-            text-align: center;
-            font-size: 28px; /* Increase font size for a bigger title */
-            font-weight: bold; /* Make the title bolder */
-            width: 100%;
+            background-color: #1a1a1a;
+            color: #ffffff;
         }
         #chat {
-            background-color: #ffffff;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #000000;
             border-radius: 10px;
             padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             text-align: left;
-            width: 100%;
-            max-width: 600px;
-            margin: 20px;
-            box-shadow: none; /* Remove the box shadow */
+        }
+        h1 {
+            text-align: center;
+            color: #00aaff; /* Color for the "Stanford Q&A Chatbot" topic */
         }
         #chat-container {
             margin-top: 20px;
@@ -44,14 +34,14 @@
             padding: 10px;
             border: 1px solid #333;
             border-radius: 5px;
-            background-color: #ffffff;
-            color: #000000;
+            background-color: #1a1a1a;
+            color: #ffffff;
         }
         #user-message::placeholder {
             color: #777;
         }
         #send-button {
-            background-color: #ff0000; /* Change Ask button color to red */
+            background-color: #00aaff;
             color: #ffffff;
             padding: 10px 20px;
             border: none;
@@ -59,7 +49,7 @@
             cursor: pointer;
         }
         #send-button:hover {
-            background-color: #cc0000; /* Change the hover color to a darker red */
+            background-color: #0077cc;
         }
         p {
             margin: 10px 0;
@@ -69,7 +59,7 @@
             align-items: flex-start;
         }
         p:nth-child(odd) {
-            background-color: #ffffff;
+            background-color: #000000;
         }
         i {
             font-size: 1.2em;
@@ -79,12 +69,12 @@
         
         /* Add custom CSS for the bot's response text alignment */
         .bot-response {
-            text-indent: 20px;
+            text-indent: 20px; /* Adjust the value to control the indentation */
         }
     </style>
 </head>
 <body>
-    <div id="title">Stanford Q&A Chatbot</div>
+    <h1>Stanford Q&A Chatbot</h1>
     <div id="chat">
         <div id="chat-container"></div>
         <input id="user-message" type="text" placeholder="Type a question..." onkeypress="handleKeyPress(event)" />
