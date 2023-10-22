@@ -12,6 +12,7 @@ from langchain.vectorstores import DocArrayInMemorySearch
 
 import os
 import datetime
+import random
 
 #import IPython.display
 from PIL import Image
